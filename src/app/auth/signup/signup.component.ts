@@ -11,6 +11,8 @@ export class SignupComponent implements OnInit {
 
   constructor() { }
 
+  agree = "I agree to the terms & conditions"
+
   ngOnInit(): void {
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18) 
