@@ -24,5 +24,8 @@ a:hover {
 
 .navigation-items {
     list-style: none;
+}
 
+.navigation-caption {
+    margin-left: 10px;
 }
