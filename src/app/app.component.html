@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav 
+        mode="side" 
+        [opened]="openedSideNav"
+        role="navigation"
+        #sideNav
+    >
+        <p>this is the side navx</p>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button (click)="sideNav.toggle()">Toggle Side Nav</button>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
