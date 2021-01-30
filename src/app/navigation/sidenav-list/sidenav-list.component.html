@@ -1,0 +1,17 @@
+<mat-nav-list>
+  <a mat-list-item routerLink="/login" (click)="closeSideNavToggle()">
+    <mat-icon color="accent">face</mat-icon><span class="navigation-caption">Login</span>
+  </a>
+  <a mat-list-item routerLink="signup" (click)="closeSideNavToggle()">
+    <mat-icon color="accent">person_outline</mat-icon><span class="navigation-caption">Sign up</span>
+  </a>
+  <a mat-list-item routerLink="/training" (click)="closeSideNavToggle()">
+    <mat-icon color="accent">rowing</mat-icon><span class="navigation-caption">Train</span>
+  </a>
+  <mat-list-item>
+    <button mat-icon-button>
+      <mat-icon color="accent">eject</mat-icon>
+      <span class="navigation-caption">Logout</span>
+    </button>
+  </mat-list-item>
+</mat-nav-list>

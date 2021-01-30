@@ -1,0 +1,18 @@
+a {
+    text-decoration: none;
+    color: white;
+    margin-right: 8px;
+}
+
+a:hover {
+    border-bottom: 2px solid white;
+
+}
+
+.navigation-items {
+    list-style: none;
+}
+
+.navigation-caption {
+    margin-left: 10px;
+}

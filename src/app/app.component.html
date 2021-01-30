@@ -5,78 +5,10 @@
         role="navigation"
         #sideNav
     >
-        <mat-nav-list>
-            <a 
-                mat-list-item 
-                routerLink="/login" 
-                (click)="sideNav.close()"
-            >
-                <mat-icon color="accent">face</mat-icon><span class="navigation-caption">Login</span>
-            </a>
-            <a 
-                mat-list-item 
-                routerLink="signup"
-                (click)="sideNav.close()"
-            >
-                <mat-icon color="accent">person_outline</mat-icon><span class="navigation-caption">Sign up</span>
-            </a>
-            <a 
-                mat-list-item 
-                routerLink="/training"
-                (click)="sideNav.close()"
-            >
-                <mat-icon color="accent">rowing</mat-icon><span class="navigation-caption">Train</span>
-            </a>
-            <mat-list-item>
-                <button mat-icon-button>
-                    <mat-icon color="accent">eject</mat-icon>
-                    <span class="navigation-caption">Logout</span>
-                </button>
-            </mat-list-item>
-        </mat-nav-list>
+        <app-sidenav-list (closeSideNav)="sideNav.close()"></app-sidenav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar color="accent">
-            <div
-                fxHide.sm
-                fxHide.md
-                fxHide.lg
-                fxHide.xl
-            >
-                <button
-                    fxHide.gt-xs
-                    aria-label="Toggle Navigation" 
-                    (click)="sideNav.toggle()"
-                    mat-icon-button>
-                    <mat-icon>menu</mat-icon>    
-                </button>
-            </div>
-            <div>
-                <span>
-                    <a routerLink="/">
-                        Logo
-                    </a>
-                </span>
-            </div>
-            <div 
-                fxFlex 
-                fxLayout 
-                fxLayoutAlign="flex-end"
-                fxHide.xs
-            >
-                <ul fxLayout class="navigation-items">
-                    <li>
-                        <a routerLink="/login">Login</a>
-                    </li>
-                    <li>
-                        <a routerLink="signup">Signup</a>
-                    </li>
-                    <li>
-                        <a routerLink="/training">Train</a>
-                    </li>
-                </ul>
-            </div>
-        </mat-toolbar>
+        <app-header (sideNavToggle)="sideNav.toggle()"></app-header>
         <main>
             <router-outlet></router-outlet>
         </main>

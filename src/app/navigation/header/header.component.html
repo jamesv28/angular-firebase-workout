@@ -1,0 +1,41 @@
+<mat-toolbar color="accent">
+    <div
+        fxHide.sm
+        fxHide.md
+        fxHide.lg
+        fxHide.xl
+    >
+        <button
+            fxHide.gt-xs
+            aria-label="Toggle Navigation" 
+            (click)="onToggleSidenav()"
+            mat-icon-button>
+            <mat-icon>menu</mat-icon>    
+        </button>
+    </div>
+    <div>
+        <span>
+            <a routerLink="/">
+                Logo
+            </a>
+        </span>
+    </div>
+    <div 
+        fxFlex 
+        fxLayout 
+        fxLayoutAlign="flex-end"
+        fxHide.xs
+    >
+        <ul fxLayout class="navigation-items">
+            <li>
+                <a routerLink="/login">Login</a>
+            </li>
+            <li>
+                <a routerLink="signup">Signup</a>
+            </li>
+            <li>
+                <a routerLink="/training">Train</a>
+            </li>
+        </ul>
+    </div>
+</mat-toolbar>
