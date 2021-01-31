@@ -9,6 +9,8 @@ export class TrainingComponent implements OnInit {
 
   constructor() { }
 
+  onGoingTraining = false;
+  
   ngOnInit(): void {
   }
 

@@ -9,7 +9,12 @@ export class CurrentTrainingComponent implements OnInit {
 
   constructor() { }
 
+  progress = 0;
+
   ngOnInit(): void {
+    setInterval( () => {
+      this.progress = this.progress + 5;
+    }, 1000);
   }
 
 }
