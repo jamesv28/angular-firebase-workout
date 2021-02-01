@@ -2,21 +2,18 @@
     <form
         fxLayout="column"
         fxLayoutAlign="center center"
-        #f="ngForm"
         fxLayoutGap="10px"
-        ngSubmit="onSubmit(f)"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
     >
     <p>
         <mat-form-field appearance="standard">
             <mat-label>Email</mat-label>
             <input 
-                matInput 
-                placeholder="Email" 
-                type="email" 
-                ngModel 
-                name="email"
-                required
-                #emailInput="ngModel"
+                type="email"
+                matInput
+                placeholder="Your email"
+                formControlName="email"
             >
             <mat-error >Email is required</mat-error>   
         </mat-form-field>
@@ -25,14 +22,10 @@
         <mat-form-field appearance="standard">
             <mat-label>Password</mat-label>
             <input 
-                type="password" 
-                matInput 
-                placeholder="Password" 
-                ngModel 
-                name="password"
-                required
-                minlength="6"
-                #pwInput="ngModel"
+                type="password"
+                matInput
+                placeholder="Your password"
+                formControlName="password"
             >
             <mat-error>
                 {{passwordReduired}}
@@ -43,7 +36,7 @@
             mat-raised-button 
             color="primary"
             type="submit"
-            [disabled]="f.invalid"
+            [disabled]="loginForm.invalid"
         >
         Submit
         </button>

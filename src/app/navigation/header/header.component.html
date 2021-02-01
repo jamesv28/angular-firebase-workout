@@ -26,15 +26,18 @@
         fxLayoutAlign="flex-end"
         fxHide.xs
     >
-        <ul fxLayout class="navigation-items">
-            <li>
+        <ul fxLayout class="navigation-items" role="navigation">
+            <li *ngIf="!isAuth">
                 <a routerLink="/login">Login</a>
             </li>
-            <li>
+            <li *ngIf="!isAuth">
                 <a routerLink="signup">Signup</a>
             </li>
-            <li>
+            <li *ngIf="isAuth">
                 <a routerLink="/training">Train</a>
+            </li>
+            <li *ngIf="isAuth">
+                <a>Logout</a>
             </li>
         </ul>
     </div>
