@@ -13,36 +13,36 @@ export class AuthService {
 
     registerUser(authData: AuthData) {
         this.user = {
-            email: authData.email,
-            userId: String(Math.round(Math.random() * 10000))
-        }
-        this.authSuccess();
-    }
-
-    login(authData: AuthData) {
+          email: authData.email,
+          userId: Math.round(Math.random() * 10000).toString()
+        };
+        this.authSuccessfully();
+      }
+    
+      login(authData: AuthData) {
         this.user = {
-            email: authData.email,
-            userId: String(Math.round(Math.random() * 10000))
-        }
-        this.authSuccess(); 
-    }
-
-    logout() {
+          email: authData.email,
+          userId: Math.round(Math.random() * 10000).toString()
+        };
+        this.authSuccessfully();
+      }
+    
+      logout() {
         this.user = null;
         this.authChange.next(false);
-        this.router.navigate(["/login"]);
-    }
-
-    getUser() {
-        return {...this.user};
-    }
-
-    isAuth() {
-        return this.user !== this.user;
-    }
-
-    private authSuccess() {
+        this.router.navigate(['/login']);
+      }
+    
+      getUser() {
+        return { ...this.user };
+      }
+    
+      isAuth() {
+        return this.user != null;
+      }
+    
+      private authSuccessfully() {
         this.authChange.next(true);
-        this.router.navigate(["/training"]);
-    }
+        this.router.navigate(['/training']);
+      }
 }
