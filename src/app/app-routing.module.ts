@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { TrainingComponent } from './training/training.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -20,12 +21,14 @@ const routes: Routes = [
   },
   {
     path: 'training',
-    component: TrainingComponent
+    component: TrainingComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
