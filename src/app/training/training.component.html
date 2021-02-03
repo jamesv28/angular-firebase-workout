@@ -1,7 +1,7 @@
 <section class="traing" fxLayout="center" *ngIf="!onGoingTraining">
   <mat-tab-group mat-align-tabs="center" color="warn">
     <mat-tab label="New Exercise">
-        <app-new-training (trainingStart)="onGoingTraining = true"></app-new-training>  
+        <app-new-training ></app-new-training>  
     </mat-tab>
     <mat-tab label="Past Exercise">
         <app-past-training></app-past-training> 
