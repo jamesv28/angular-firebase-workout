@@ -16,7 +16,7 @@ export class NewTrainingComponent implements OnInit {
   constructor(private trainingService: TrainingService) { }
 
   ngOnInit(): void {
-    this.training = this.trainingService.getAvailableTraining();
+    this.training = this.trainingService.getAvailableExercises();
   }
 
   onStartTraining(form: NgForm) {
