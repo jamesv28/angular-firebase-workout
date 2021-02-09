@@ -1,5 +1,11 @@
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort >
+<div>
+    <div fxLayoutAlign="center center">
+        <mat-form-field fxFlex="40%" color="accent">
+            <mat-label>Filter</mat-label>
+            <input matInput value="" type="text" placeholder="Filter" (keyup)="doFilter($event.target.value)" />
+        </mat-form-field>
+    </div>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
         <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>

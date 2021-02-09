@@ -29,4 +29,8 @@ export class PastTrainingComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  doFilter(filter: string) {
+    this.dataSource.filter = filter.trim().toLowerCase();
+  }
+
 }
