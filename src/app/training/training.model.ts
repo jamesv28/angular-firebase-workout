@@ -3,6 +3,6 @@ export interface Training {
     name: string;
     duration: number;
     calories: number;
-    finished?: Date;
+    date?: Date;
     state?: 'completed' | 'cancelled' | null;
 }
