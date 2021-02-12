@@ -19,6 +19,9 @@ import { PastTrainingComponent } from './training/past-training/past-training.co
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import {StopTrainingComponent} from './training/current-training/stop-training.component';
+import { AngularFireModule } from '@angular/fire';
+import {AngularFirestoreModule} from "@angular/fire/firestore";
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,9 @@ import {StopTrainingComponent} from './training/current-training/stop-training.c
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [AuthService,TrainingService],
   bootstrap: [AppComponent],
