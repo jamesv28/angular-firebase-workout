@@ -8,7 +8,7 @@
             <mat-form-field appearance="fill" color="accent">
                 <mat-label>Choose Workout</mat-label>
                 <mat-select ngModel name="exercise" required>
-                  <mat-option *ngFor="let train of training | async" [value]="train.name">
+                  <mat-option *ngFor="let train of exercises " [value]="train.name">
                     {{train.name}}
                   </mat-option>
                 </mat-select>
