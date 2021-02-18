@@ -21,6 +21,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import {StopTrainingComponent} from './training/current-training/stop-training.component';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFirestoreModule} from "@angular/fire/firestore";
+import {AngularFireAuth, AngularFireAuthModule} from "@angular/fire/auth";
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -40,6 +41,8 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
