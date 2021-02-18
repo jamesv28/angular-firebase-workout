@@ -3,7 +3,6 @@ import { Training } from './training.model';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
 
 @Injectable()
 export class TrainingService {
@@ -47,7 +46,7 @@ export class TrainingService {
   }
 
   completeExercise() {
-    this.exercises.push({
+    this.addExerciseToDB({
       ...this.runningExercise,
       date: new Date(),
       state: 'completed'
@@ -74,5 +73,9 @@ export class TrainingService {
 
   getCompletedOrCancelledExercises() {
     return this.exercises.slice();
+  }
+
+  private addExerciseToDB(exercise: Training) {
+    this.db.collection('finishedExercises').add(exercise)
   }
 }
