@@ -21,6 +21,12 @@
     </a>
     <mat-divider></mat-divider>
   </div>
+  <div *ngIf="isAuth">
+    <a mat-list-item routerLink="/workouts" (click)="closeSideNavToggle()">
+      <mat-icon color="accent">directions_bike</mat-icon><span class="navigation-caption">Workouts</span>
+    </a>
+    <mat-divider></mat-divider>
+  </div>
   <mat-list-item *ngIf="isAuth">
     <button mat-icon-button (click)="onLogOut()">
       <mat-icon color="accent">eject</mat-icon>

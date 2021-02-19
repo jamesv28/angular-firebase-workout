@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {WorkoutsComponent} from './workouts/workouts.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
   {
     path: 'training',
     component: TrainingComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'workouts',
+    component: WorkoutsComponent,
     canActivate: [AuthGuard]
   }
 ];

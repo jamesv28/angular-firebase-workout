@@ -23,6 +23,7 @@ import { AngularFireModule } from '@angular/fire';
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import {AngularFireAuth, AngularFireAuthModule} from "@angular/fire/auth";
 import { environment } from '../environments/environment';
+import { WorkoutsComponent } from './workouts/workouts.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { environment } from '../environments/environment';
     PastTrainingComponent,
     HeaderComponent,
     SidenavListComponent,
-    StopTrainingComponent
+    StopTrainingComponent,
+    WorkoutsComponent
   ],
   imports: [
     BrowserModule,
