@@ -16,6 +16,7 @@ export class PastTrainingComponent implements OnInit, OnDestroy {
   displayedColumns = ["date", "name", "calories", "duration", "state"];
   dataSource = new MatTableDataSource<Training>();
   private exChangedSubscription: Subscription;
+  
   constructor(private trainingService: TrainingService) { }
 
   ngOnInit(): void {

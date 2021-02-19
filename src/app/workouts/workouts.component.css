@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+
+#titleColumn {
+    width: 20%;
+}
+
+#descriptionColumn, #workoutColumn {
+    width: 40%;
+}
+
