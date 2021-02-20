@@ -4,6 +4,7 @@ import { Training } from './training.model';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
+import {UIService} from "../utility/ui.service";
 
 @Injectable()
 export class TrainingService {
@@ -15,9 +16,13 @@ export class TrainingService {
   private availableExercises: Training[] = [];
   private fbSubscription: Subscription[] = [];
 
-  constructor(private db: AngularFirestore) {}
+  constructor(
+    private db: AngularFirestore,
+    private uiService: UIService
+    ) {}
 
   fetchAvailableExercieses() {
+    this.uiService.loadingStateChanged.next(true);
     this.fbSubscription.push(this.db
       .collection('available-exercises')
       .snapshotChanges()
@@ -34,7 +39,9 @@ export class TrainingService {
       .subscribe((exercises: Training[]) => {
         this.availableExercises = exercises;
         this.exercisesChanged.next([...this.availableExercises]);
+        this.uiService.loadingStateChanged.next(false);
       }, err => {
+        this.uiService.loadingStateChanged.next(false);
         console.log('training service error', err);
       }));
   }

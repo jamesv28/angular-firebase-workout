@@ -1,3 +1,4 @@
+import { UIService } from './../../utility/ui.service';
 import { NgForm } from '@angular/forms';
 import { Training } from './../training.model';
 import { TrainingService } from './../training.service';
@@ -15,10 +16,18 @@ export class NewTrainingComponent implements OnInit {
   training: Training[];
   exercises: Training[];
   excerciseSubscription: Subscription;
+  isLoadingSubscription: Subscription;
+  isLoading = false;
 
-  constructor(private trainingService: TrainingService) { }
+  constructor(
+    private trainingService: TrainingService,
+    private uiService: UIService
+    ) { }
 
   ngOnInit(): void {
+    this.isLoadingSubscription = this.uiService.loadingStateChanged.subscribe(isLoading => {
+      this.isLoading = isLoading;
+    })
     this.excerciseSubscription = this.trainingService.exercisesChanged.subscribe(exercises => {
       this.exercises = exercises;
     });
@@ -32,6 +41,7 @@ export class NewTrainingComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.excerciseSubscription.unsubscribe();
+    this.isLoadingSubscription.unsubscribe();
   }
 
 }
