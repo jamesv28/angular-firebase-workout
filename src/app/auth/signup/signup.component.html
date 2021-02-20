@@ -60,7 +60,9 @@
         >
             {{agree}} 
         </mat-checkbox>
+        <mat-spinner color="accent" aria-label="Loading" *ngIf="isLoading"></mat-spinner>
         <button 
+            *ngIf="!isLoading"
             mat-raised-button 
             color="primary"
             type="submit"

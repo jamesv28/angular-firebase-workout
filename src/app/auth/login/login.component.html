@@ -32,7 +32,13 @@
             </mat-error>
         </mat-form-field>
     </p>
+    <mat-spinner 
+    *ngIf="isLoading"
+    aria-label="Loading"
+    color="accent"
+    ></mat-spinner>
         <button 
+            *ngIf="!isLoading"
             mat-raised-button 
             color="primary"
             type="submit"

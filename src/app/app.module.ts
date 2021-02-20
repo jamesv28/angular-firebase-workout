@@ -1,3 +1,4 @@
+import { UIService } from './utility/ui.service';
 import { AuthService } from './auth/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
@@ -55,7 +56,7 @@ import { SingleWorkoutComponent } from './workouts/single-workout/single-workout
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [AuthService,TrainingService, WorkoutsService],
+  providers: [AuthService,TrainingService, WorkoutsService, UIService],
   bootstrap: [AppComponent],
   entryComponents: [StopTrainingComponent]
 })
