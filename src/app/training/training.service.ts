@@ -90,7 +90,7 @@ export class TrainingService {
       .subscribe((exercises: Training[]) => {
         this.finishedExerciseChanged.next(exercises);
       }, err => {
-        console.log(err);
+        this.uiService.showSnackBar('There was an error. Plesae try again.', null, 3000);
       }));
   }
 
