@@ -16,7 +16,6 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFirestoreModule} from "@angular/fire/firestore";
-import {AngularFireAuth, AngularFireAuthModule} from "@angular/fire/auth";
 import { environment } from '../environments/environment';
 import { WorkoutsComponent } from './workouts/workouts.component';
 import { SingleWorkoutComponent } from './workouts/single-workout/single-workout.component';
@@ -35,12 +34,10 @@ import { SingleWorkoutComponent } from './workouts/single-workout/single-workout
     AppRoutingModule,
     TrainingModule,
     AngularFirestoreModule,
-    AngularFireAuthModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
     AuthModule,
-    AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [AuthService,TrainingService, WorkoutsService, UIService],

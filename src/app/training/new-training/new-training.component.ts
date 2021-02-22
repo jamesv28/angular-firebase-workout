@@ -40,8 +40,8 @@ export class NewTrainingComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.excerciseSubscription.unsubscribe();
-    this.isLoadingSubscription.unsubscribe();
+    if (this.excerciseSubscription) this.excerciseSubscription.unsubscribe();
+    if (this.isLoadingSubscription) this.isLoadingSubscription.unsubscribe();
   }
 
 }
