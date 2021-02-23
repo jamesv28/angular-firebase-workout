@@ -9,6 +9,8 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFirestoreModule} from "@angular/fire/firestore";
+import { TrainingRoutingModule } from './training.routing.module';
+
 @NgModule({
   declarations: [
     TrainingComponent,
@@ -21,7 +23,8 @@ import {AngularFirestoreModule} from "@angular/fire/firestore";
     ReactiveFormsModule,
     AngularFirestoreModule,
     AngularFireModule,
-    SharedModule
+    SharedModule,
+    TrainingRoutingModule
   ],
   exports: [],
   providers: [],

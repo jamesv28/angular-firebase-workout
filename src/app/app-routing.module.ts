@@ -1,8 +1,5 @@
 import { AuthGuard } from './auth/auth.guard';
 import { HomeComponent } from './home/home.component';
-import { TrainingComponent } from './training/training.component';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WorkoutsComponent} from './workouts/workouts.component';
@@ -13,28 +10,17 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'signup',
-    component: SignupComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
     path: 'training',
-    component: TrainingComponent,
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./training/training.module').then(m => m.TrainingModule), canLoad: [AuthGuard]
   },
   {
     path: 'workouts',
-    component: WorkoutsComponent,
-    canActivate: [AuthGuard]
+    component: WorkoutsComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  providers: [AuthGuard]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

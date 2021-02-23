@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth/auth.guard';
 import { UIService } from './utility/ui.service';
 import { AuthService } from './auth/auth.service';
 import { HomeComponent } from './home/home.component';
@@ -11,7 +12,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from './material.module';
 import {AuthModule} from './auth/auth.module';
-import {TrainingModule} from './training/training.module';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { AngularFireModule } from '@angular/fire';
@@ -32,7 +32,6 @@ import { SingleWorkoutComponent } from './workouts/single-workout/single-workout
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TrainingModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -40,7 +39,7 @@ import { SingleWorkoutComponent } from './workouts/single-workout/single-workout
     AuthModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [AuthService,TrainingService, WorkoutsService, UIService],
+  providers: [AuthService,TrainingService, WorkoutsService,AuthGuard, UIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
