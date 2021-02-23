@@ -1,3 +1,4 @@
+import { UIService } from './../utility/ui.service';
 import { Subscription } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Subject } from 'rxjs/Subject';
@@ -12,7 +13,7 @@ export class WorkoutsService  {
     workoutChanged = new Subject<Workout[]>();
     private availableWorkouts: Workout[] = [];
 
-    constructor(private db: AngularFirestore) {}
+    constructor(private db: AngularFirestore, private uiService: UIService) {}
 
     fetchAvailableWorkouts() {
         this.fbSubscription.push(this.db
@@ -32,7 +33,8 @@ export class WorkoutsService  {
               this.availableWorkouts = workouts;
               this.workoutChanged.next([...this.availableWorkouts]);
             }, err => {
-              console.log('workout service error', err);
+              this.uiService.loadingStateChanged.next(false);
+              this.uiService.showSnackBar(err, null, 3000);
             }));
         }
 }
